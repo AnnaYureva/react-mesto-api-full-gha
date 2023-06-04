@@ -1,0 +1,12 @@
+.profile__image-edit{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: none;
+    border: none;
+}
+.profile__image-edit:hover {
+    background: rgba(0, 0, 0, 0.8) url('../../../images/image-edit.svg') no-repeat center;
+    opacity: 0.8;
+    cursor: pointer;
+}

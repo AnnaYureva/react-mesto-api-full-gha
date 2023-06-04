@@ -1,0 +1,18 @@
+.popup__status-message {
+    color: #000;
+    font-weight: 900;
+    font-size: 24px;
+    text-align: center;
+    line-height: 29px;
+    max-width: 358px;
+    margin: 0 auto 60px;
+  }
+
+  @media screen and (max-width: 700px) {
+    .popup__status-message {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 50px;
+        max-width: 244px;
+    }
+  }

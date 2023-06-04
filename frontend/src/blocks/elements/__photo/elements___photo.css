@@ -1,0 +1,11 @@
+.elements__photo {
+    height: 282px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    color:#fff;
+}
+
+.elements__photo:hover {
+    cursor: pointer;
+}
+

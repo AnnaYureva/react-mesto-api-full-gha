@@ -1,0 +1,10 @@
+.elements__like_active {
+    width: 25px;
+    height: 19px;
+    align-self: center;
+    background-image: url(../../../../images/Union.svg);
+    border: none;
+    background-color: white;
+    background-clip: border-box;
+    background-repeat: no-repeat;
+}

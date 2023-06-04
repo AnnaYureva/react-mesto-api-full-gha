@@ -1,0 +1,9 @@
+.elements__description {
+    background-color: #FFFFFF;
+    padding: 25px 15px 21px 31px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border-radius: 0 0 10px 10px;
+}

@@ -1,0 +1,12 @@
+.popup__status-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    padding: 60px 155px 32px;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .popup__status-icon {
+      padding: 50px 80px 40px;
+    }
+  }

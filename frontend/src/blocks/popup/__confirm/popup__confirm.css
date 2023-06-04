@@ -1,0 +1,13 @@
+.popup__confirm {
+    width: 430px;
+    background-color: #fff;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 10px;
+  }
+
+  @media screen and (max-width: 700px) {
+    .popup__confirm {
+        width: 280px;
+    }
+  }
