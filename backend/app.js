@@ -7,6 +7,7 @@ const router = require('./routes/index');
 const { createUser, login } = require('./controllers/user');
 const auth = require('./middlewares/auth');
 const error = require('./middlewares/error');
+const cors = require('cors')
 
 const { loginValidation, createUserValidation } = require('./middlewares/validator');
 
@@ -23,7 +24,7 @@ const limiter = rateLimit({
 
 // создание инстанса сервера
 const app = express();
-
+app.use(cors());
 app.use(helmet());
 
 // применяем миллдвэр ко всем запросам
