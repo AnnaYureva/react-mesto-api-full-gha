@@ -3,11 +3,12 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { errors } = require('celebrate');
+const cors = require('cors');
 const router = require('./routes/index');
 const { createUser, login } = require('./controllers/user');
 const auth = require('./middlewares/auth');
 const error = require('./middlewares/error');
-const cors = require('cors')
+
 
 const { loginValidation, createUserValidation } = require('./middlewares/validator');
 
