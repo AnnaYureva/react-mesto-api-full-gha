@@ -22,7 +22,7 @@
 
 ## Проект доступен по ссылкам
 
-IP-адрес 158.160.34.223
+IP 158.160.34.223
 
 Frontend https://yuanya.nomoredomains.rocks/
 
