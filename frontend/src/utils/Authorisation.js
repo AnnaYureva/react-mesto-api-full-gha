@@ -16,9 +16,11 @@
   registerNewUser(email, password) {
     return fetch(`${this._url}/signup`, {
       method: "POST",
-      headers: this._headers,
-      body: JSON.stringify({ password, email }),
-    }).then(this._handleResponse);
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password }),
+  }).then(this._handleResponse);
   }
 
   //логин
@@ -31,19 +33,19 @@
   }
 
   //получение токена
-  getToken(jwt) {
+  getToken(token) {
     return fetch(`${this._url}/users/me`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${jwt}`,
+        "Authorization": `Bearer ${token}`,
       },
     }).then(this._handleResponse);
   }
 }
 
 const auth = new Authorisation({
-    url: "https://auth.nomoreparties.co",
+    url: "http://localhost:3000",
     headers: {
       "Content-Type": "application/json",
     },

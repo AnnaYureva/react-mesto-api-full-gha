@@ -9,7 +9,7 @@ const ConflictError = require('../errors/ConflictError');
 
 const getUsers = (req, res, next) => {
   User.find({})
-    .then((users) => res.status(200).send(users))
+    .then((user) => res.status(200).send(user))
     .catch(next);
 };
 
@@ -119,7 +119,7 @@ const login = (req, res, next) => {
 const getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)
     .orFail()
-    .then((user) => res.status(200).send({ user }))
+    .then((user) => res.status(200).send(user))
     .catch((err) => {
       if (err.name === 'DocumentNotFoundError') {
         next(new NotFoundError('Пользователь c таким ID не найден'));

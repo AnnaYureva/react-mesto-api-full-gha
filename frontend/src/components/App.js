@@ -74,7 +74,7 @@ function App() {
           }
         })
         .catch((err) => {
-          console.error(err);
+          console.log(`Не удалось получить токен: ${err}`);
         });
     }
   }, []);
@@ -90,7 +90,7 @@ function App() {
       Promise.all([api.getUserData(), api.getInitialCards()])
         .then(([user, cards]) => {
           setCurrentUser(user);
-          setCards(cards);
+          setCards(cards.reverse());
         })
         .catch((err) => {
           console.error(err);
@@ -101,7 +101,7 @@ function App() {
   function onSignOut() {
     setIsLoggedIn(false);
     setEmail(null);
-    navigate("/sign-in");
+    navigate("/signin");
     localStorage.removeItem("jwt");
   }
 
@@ -114,7 +114,7 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((el) => el._id === currentUser._id);
+    const isLiked = card.likes.some((el) => el === currentUser._id);
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
@@ -127,7 +127,7 @@ function App() {
 
   function handleCardDelete(card) {
     api
-      .deleteCard(card._id)
+      .deleteCard(card)
       .then(() =>
         setCards((state) => state.filter((el) => el._id !== card._id))
       )
@@ -170,10 +170,10 @@ function App() {
         <div className="page">
           <Routes>
             <Route
-              path="/sign-in"
+              path="/signin"
               element={
                 <>
-                  <Header title="Регистрация" route="/sign-up" />
+                  <Header title="Регистрация" route="/signup" />
                   <Login onLogin={onLogin} />
                   <Footer />
                 </>
@@ -181,10 +181,10 @@ function App() {
             />
 
             <Route
-              path="/sign-up"
+              path="/signup"
               element={
                 <>
-                  <Header title="Войти" route="/sign-in" />
+                  <Header title="Войти" route="/signin" />
                   <Register onRegister={onRegister} />
                   <Footer />
                 </>
@@ -220,7 +220,7 @@ function App() {
 
             <Route
               path="*"
-              element={<Navigate to={isLoggedIn ? "/" : "/sign-in"} />}
+              element={<Navigate to={isLoggedIn ? "/" : "/signin"} />}
             />
           </Routes>
           <ImagePopup card={selectedCard} onClose={closeAllPopups} />
