@@ -11,6 +11,7 @@ const auth = require('./middlewares/auth');
 const error = require('./middlewares/error');
 
 const { loginValidation, createUserValidation } = require('./middlewares/validator');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 // Слушаем 300 порт
 const { PORT = 3000 } = process.env;
@@ -45,6 +46,8 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
+app.use(requestLogger); // логгер запросов
+
 // роуты для логина и регистрации
 
 app.post('/signin', loginValidation, login); // валидация запроса происходит до его передачи контроллеру
@@ -52,8 +55,11 @@ app.post('/signup', createUserValidation, createUser);
 
 app.use(auth); // авторизация
 app.use('/', router);
+
+app.use(errorLogger); // логгер ошибок
+
 app.use(errors()); // обработка ошибок
-app.use(error);
+app.use(error); // централизованный обработчик ошибок
 
 // запускаем сервер
 app.listen(PORT, () => {
