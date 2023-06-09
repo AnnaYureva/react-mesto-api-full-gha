@@ -45,7 +45,8 @@
 }
 
 const auth = new Authorisation({
-    url: "http://localhost:3000",
+    //url: "http://localhost:3000",
+    url: "https://api.yuanya.nomoredomains.rocks",
     headers: {
       "Content-Type": "application/json",
     },

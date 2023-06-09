@@ -9,7 +9,6 @@ const { createUser, login } = require('./controllers/user');
 const auth = require('./middlewares/auth');
 const error = require('./middlewares/error');
 
-
 const { loginValidation, createUserValidation } = require('./middlewares/validator');
 
 // Слушаем 300 порт

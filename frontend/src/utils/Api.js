@@ -119,7 +119,8 @@
 }
 
 const api = new Api({
-  url: "http://localhost:3000",
+ // url: "http://localhost:3000",
+ url: "https://api.yuanya.nomoredomains.rocks"
 });
 
 export default api;
