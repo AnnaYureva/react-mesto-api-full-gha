@@ -1,6 +1,7 @@
 const { celebrate, Joi } = require('celebrate');
 const URL_REGEX = require('../utils/const');
 
+//
 const createCardValidation = celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30).required(),
