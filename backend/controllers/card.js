@@ -29,7 +29,8 @@ const deleteCard = (req, res, next) => {
     .orFail()
     .then((card) => {
       if (card.owner.toString() === req.user._id) {
-        return Card.findByIdAndRemove(cardId).then(() => res.status(200).send(card));
+        return Card.deleteOne(card)
+          .then(() => res.status(200).send(card));
       }
       return next(new ForbiddenError('Ошибка доступа'));
     })
